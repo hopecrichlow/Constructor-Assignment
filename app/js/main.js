@@ -2,15 +2,41 @@
 // Constructors
 // Only add code to *THIS* section!
 
-///
-///
-///
-///
+"use strict";
+
+var Dog = function Dog(params) {
+
+  //"It should not affect Atticus and Moonshine's owner properties when setting Mason as Sadie's owner"
+  params = params !== undefined ? params : {};
+
+  //"It should make Sadie black"
+  this.color = params.color;
+  this.status = params.status || "normal";
+  this.owner = params.owner;
+  //"It should be make Moonshine hungry and Sadie not hungry"
+  this.hungry = params.hungry !== undefined ? params.hungry : true;
+};
+
+var Human = function Human(params) {
+
+  params = params !== undefined ? params : {};
+
+  //"It should make Julia cool and Mason not cool"
+  this.cool = params.cool !== undefined ? params.cool : false;
+
+  //"It should make Sadie happy when Mason pets her"
+  this.pet = function (x) {
+    x.status = "happy";
+  };
+
+  //"It should make Moonshine no longer hungry when you feed him"
+  this.feed = function (x) {
+    x.hungry = false;
+  };
+};
 
 // Do not ADD or MODIFY code below this line :)
 // Dogs
-'use strict';
-
 var sadie = new Dog({
   color: 'black',
   hungry: false
